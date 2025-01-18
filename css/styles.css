@@ -1,75 +1,127 @@
+/* Light Mode Variables */
 :root {
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --header-background: #333;
-    --header-text-color: white;
-    --button-background: #333;
-    --button-text-color: white;
+    --background-color: #F9F9F9;
+    --text-color: #222222;
+    --primary-accent: #43A047;
+    --secondary-accent: #1976D2;
+    --button-hover: #1565C0;
+
+    --primary-font-heading: 'Montserrat', sans-serif;
+    --secondary-font-body: 'Open Sans', sans-serif;
+    --accent-font: 'Raleway', sans-serif;
 }
 
+/* Dark Mode Variables */
+body.dark-mode {
+    --background-color: #1E1E2F;
+    --text-color: #F5F5F5;
+    --primary-accent: #4CAF50;
+    --secondary-accent: #2196F3;
+    --button-hover: #388E3C;
+}
+
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
+    font-family: var(--secondary-font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 10px; /* Reduced padding */
+}
+
+header, footer {
+    background-color: transparent; /* Use transparent background */
+    color: var(--text-color);
+    padding: 0 1rem; /* Remove padding above the navigation bar */
+    text-align: center;
+    width: 100%;
+    position: relative;
 }
 
 header {
-    background-color: var(--header-background);
-    color: var(--header-text-color);
-    padding: 1rem;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: var(--background-color); /* Match background color */
 }
 
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+nav .navbar-brand {
+    font-family: var(--primary-font-heading);
+    font-size: 2rem;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+nav .navbar-brand:hover {
+    color: var(--secondary-accent); /* Change color on hover */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 10px;
+nav .nav-link {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-right: 1rem; /* Add space between links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-nav ul li a {
-    color: var(--header-text-color);
-    text-decoration: none;
+nav .nav-link:hover {
+    color: var(--secondary-accent); /* Change color on hover */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 1rem; /* Add space between links */
 }
 
 button#mode-toggle {
-    padding: 0.5rem 1rem;
-    background-color: var(--button-background);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: 4px;
+    padding: 0; /* Remove padding */
+    background-color: transparent; /* Remove background color */
+    color: var(--text-color);
+    border: none; /* Remove border */
     cursor: pointer;
+    outline: none; /* Remove button outline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button#mode-toggle i {
+    font-size: 1.5rem; /* Increase icon size */
+}
+
+button#mode-toggle:hover {
+    color: var(--secondary-accent); /* Change icon color on hover */
+}
+
+.btn-outline-light.btn-sm.resume-btn {
+    border-radius: 20px; /* Add rounded corners */
+    padding: 0.25rem 1rem; /* Adjust padding */
+    background-color: transparent; /* Remove background color */
+    color: var(--text-color); /* Ensure text color is visible */
+    border-color: var(--text-color); /* Border to match text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-outline-light.btn-sm.resume-btn:hover {
+    background-color: var(--button-hover);
+    color: #fff; /* Change text color on hover */
+}
+
+.container {
+    max-width: 1200px; /* Increase the maximum width */
 }
 
 section {
-    padding: 2rem;
-    margin: 2rem 0;
-    background-color: white;
+    padding: 1rem 0; /* Reduced padding */
+    margin-bottom: 1rem; /* Reduced margin */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 section h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
+    font-family: var(--primary-font-heading);
+    font-size: 2.25rem;
 }
 
 #skills ul {
@@ -80,18 +132,30 @@ section h2 {
 
 #skills ul li {
     display: inline-block;
-    background-color: #ddd;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
+    background-color: var(--primary-accent);
+    margin: 0.25rem; /* Reduced margin */
+    padding: 0.25rem 0.5rem; /* Reduced padding */
     border-radius: 4px;
+    font-family: var(--secondary-font-body);
 }
 
-.experience-item, .project-item {
-    margin-bottom: 1.5rem;
+.card {
+    background-color: var(--background-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0; /* Reduced margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.experience-item h3, .project-item h3 {
-    margin-bottom: 0.5rem;
+.card-title {
+    font-family: var(--primary-font-heading);
+    font-size: 1.75rem;
+}
+
+.card-subtitle {
+    font-family: var(--secondary-font-body);
+    color: var(--secondary-accent);
 }
 
 form {
@@ -102,13 +166,13 @@ form {
 }
 
 form label {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0; /* Reduced margin */
 }
 
 form input,
 form textarea {
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem; /* Reduced margin */
     border: 1px solid #ddd;
     border-radius: 4px;
     width: 100%;
@@ -116,26 +180,79 @@ form textarea {
 
 form button {
     padding: 0.5rem 1rem;
-    background-color: var(--button-background);
-    color: var(--button-text-color);
+    background-color: var(--primary-accent);
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: var(--secondary-font-body);
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: var(--button-hover);
 }
 
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: var(--header-background);
-    color: var(--header-text-color);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    --background-color: #333;
-    --text-color: white;
-    --header-background: #222;
-    --header-text-color: white;
-    --button-background: #444;
-    --button-text-color: white;
+/* Typing effect styles */
+#typing {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid var(--text-color);
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--text-color); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 1rem;
+    }
+
+    #introduction {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #introduction .col-md-8,
+    #introduction .col-md-4 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #introduction img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    form {
+        width: 90%;
+    }
 }
