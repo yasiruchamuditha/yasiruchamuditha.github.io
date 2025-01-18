@@ -1,6 +1,6 @@
 # yasiruchamuditha.github.io
 
-## Portfolio Plan: **Yasiru Chamuditha**
+<!-- ## Portfolio Plan: **Yasiru Chamuditha**
 
 ### Structure:
 1. **Home**
@@ -141,4 +141,4 @@ Let’s discuss new opportunities or projects! Feel free to reach out via the fo
 3. **Configure GitHub Pages**:
    - Go to `Settings` > `Pages`.
    - Select the branch (e.g., `main`) and folder (`root`).
-   - Save changes, and the site will go live at `yasiruchamuditha.github.io`.
+   - Save changes, and the site will go live at `yasiruchamuditha.github.io`. -->
