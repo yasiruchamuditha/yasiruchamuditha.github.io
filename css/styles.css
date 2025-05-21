@@ -5,6 +5,9 @@
     --primary-accent: #43A047;
     --secondary-accent: #1976D2;
     --button-hover: #1565C0;
+    --card-border-color: #ddd;
+    --card-box-shadow: rgba(0, 0, 0, 0.1);
+    --footer-icon-color: #222222; /* text-color for light mode */
 
     --primary-font-heading: 'Montserrat', sans-serif;
     --secondary-font-body: 'Open Sans', sans-serif;
@@ -18,6 +21,9 @@ body.dark-mode {
     --primary-accent: #4CAF50;
     --secondary-accent: #2196F3;
     --button-hover: #388E3C;
+    --card-border-color: rgba(245, 245, 245, 0.3); /* Lighter border for dark mode */
+    --card-box-shadow: rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+    --footer-icon-color: #F5F5F5; /* text-color for dark mode */
 }
 
 /* General Styles */
@@ -27,13 +33,13 @@ body {
     font-family: var(--secondary-font-body);
     line-height: 1.6;
     margin: 0;
-    padding: 0 10px; /* Reduced padding */
+    padding: 0; 
 }
 
 header, footer {
-    background-color: transparent; /* Use transparent background */
+    background-color: transparent; 
     color: var(--text-color);
-    padding: 0 1rem; /* Remove padding above the navigation bar */
+    padding: 0 1rem; 
     text-align: center;
     width: 100%;
     position: relative;
@@ -43,87 +49,144 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for header */
 }
 
-nav {
-    background-color: var(--background-color); /* Match background color */
+nav.navbar { /* More specific selector for nav */
+    background-color: var(--background-color); 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 nav .navbar-brand {
     font-family: var(--primary-font-heading);
-    font-size: 2rem;
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 1.75rem; /* Slightly reduced for better balance */
+    transition: color 0.3s ease; 
 }
 
 nav .navbar-brand:hover {
-    color: var(--secondary-accent); /* Change color on hover */
+    color: var(--secondary-accent); 
 }
 
 nav .nav-link {
     font-size: 1rem;
-    color: var(--text-color);
-    margin-right: 1rem; /* Add space between links */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    color: var(--text-color) !important; /* Ensure override bootstrap if necessary */
+    margin-right: 1rem; 
+    transition: color 0.3s ease; 
 }
 
 nav .nav-link:hover {
-    color: var(--secondary-accent); /* Change color on hover */
+    color: var(--secondary-accent) !important; 
 }
 
 .navbar-nav .nav-item {
-    margin-right: 1rem; /* Add space between links */
+    margin-right: 0.5rem; /* Reduced space between links for compactness */
 }
 
 button#mode-toggle {
-    padding: 0; /* Remove padding */
-    background-color: transparent; /* Remove background color */
+    padding: 0.25rem 0.5rem; /* Added some padding */
+    background-color: transparent; 
     color: var(--text-color);
-    border: none; /* Remove border */
+    border: none; 
     cursor: pointer;
-    outline: none; /* Remove button outline */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    outline: none; 
+    transition: color 0.3s ease; 
+    margin-left: 1rem; /* Space before toggle */
 }
 
 button#mode-toggle i {
-    font-size: 1.5rem; /* Increase icon size */
+    font-size: 1.25rem; /* Adjusted icon size */
 }
 
 button#mode-toggle:hover {
-    color: var(--secondary-accent); /* Change icon color on hover */
+    color: var(--secondary-accent); 
 }
 
-.btn-outline-light.btn-sm.resume-btn {
-    border-radius: 20px; /* Add rounded corners */
-    padding: 0.25rem 1rem; /* Adjust padding */
-    background-color: transparent; /* Remove background color */
-    color: var(--text-color); /* Ensure text color is visible */
-    border-color: var(--text-color); /* Border to match text color */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+.resume-btn { /* Simplified selector */
+    border-radius: 20px; 
+    padding: 0.375rem 1rem; /* Bootstrap's default btn-sm padding is often good */
+    background-color: transparent; 
+    color: var(--text-color); 
+    border: 1px solid var(--text-color); 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+    margin-left: 0.5rem; /* Space before resume button */
 }
 
-.btn-outline-light.btn-sm.resume-btn:hover {
-    background-color: var(--button-hover);
-    color: #fff; /* Change text color on hover */
+.resume-btn:hover {
+    background-color: var(--primary-accent);
+    color: #fff; 
+    border-color: var(--primary-accent);
 }
 
 .container {
-    max-width: 1200px; /* Increase the maximum width */
+    max-width: 1140px; /* Standard bootstrap lg container width */
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 section {
-    padding: 1rem 0; /* Reduced padding */
-    margin-bottom: 1rem; /* Reduced margin */
+    padding: 3rem 0; /* Increased vertical padding for sections */
+    margin-bottom: 0; /* Remove bottom margin if padding is sufficient */
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
 section h2 {
     text-align: center;
-    margin-bottom: 0.5rem; /* Reduced margin */
+    margin-bottom: 2rem; /* Increased margin below h2 */
     font-family: var(--primary-font-heading);
-    font-size: 2.25rem;
+    font-size: 2.5rem; /* Slightly larger section headings */
+    font-weight: 600; /* Bolder headings */
 }
 
+/* Introduction Section (#home) */
+#home {
+    padding-top: 4rem; /* More padding at the top */
+    padding-bottom: 4rem;
+}
+#home img.rounded-circle {
+    border: 5px solid var(--primary-accent);
+    box-shadow: 0 4px 10px var(--card-box-shadow);
+}
+#home h1 {
+    font-family: var(--primary-font-heading);
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Typing effect styles - #typing from previous CSS is good */
+#typing {
+    font-size: 1.25rem; /* Increased size */
+    font-weight: 500; /* Medium weight */
+    color: var(--text-color);
+    text-align: center;
+    min-height: 2rem; /* Ensure space for text */
+    /* white-space: nowrap; - This can cause issues if text is too long, consider removing if not strictly a single line */
+    overflow: hidden;
+    border-right: 0.15em solid var(--primary-accent); /* Use accent for caret */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* @keyframes typing is already defined, ensuring it's correct */
+/* @keyframes blink-caret is already defined, ensuring it's correct */
+
+
+/* About Me Section (#about) */
+#about {
+    background-color: var(--background-color); /* Ensure it matches body or desired section bg */
+}
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px; /* Constrain width for readability */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify; /* Justify text for a cleaner look */
+}
+
+/* Skills Section (#skills) */
 #skills ul {
     list-style: none;
     padding: 0;
@@ -133,126 +196,323 @@ section h2 {
 #skills ul li {
     display: inline-block;
     background-color: var(--primary-accent);
-    margin: 0.25rem; /* Reduced margin */
-    padding: 0.25rem 0.5rem; /* Reduced padding */
-    border-radius: 4px;
+    color: #fff; /* Ensure text is readable on accent background */
+    margin: 0.5rem; /* Increased margin for better spacing */
+    padding: 0.75rem 1.25rem; /* Increased padding for better look */
+    border-radius: 20px; /* More rounded corners for a modern look */
     font-family: var(--secondary-font-body);
+    font-weight: 500; /* Slightly bolder text */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Add hover effect */
 }
 
+#skills ul li:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow on hover */
+}
+
+/* Projects Section (#projects) */
 .card {
     background-color: var(--background-color);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 0.5rem 0; /* Reduced margin */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--card-border-color); 
+    border-radius: 12px; 
+    padding: 1.25rem; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 6px 12px var(--card-box-shadow); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    height: 100%; 
+    display: flex; /* Added for flex properties */
+    flex-direction: column; /* Added for flex properties */
 }
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Enhance shadow on hover for light, adjust for dark if needed */
+}
+
+body.dark-mode .card:hover {
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1); /* Lighter shadow for dark mode hover */
+}
+
 
 .card-title {
     font-family: var(--primary-font-heading);
-    font-size: 1.75rem;
+    font-size: 1.5rem; 
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
 }
 
-.card-subtitle {
+.card-text {
     font-family: var(--secondary-font-body);
-    color: var(--secondary-accent);
+    font-size: 0.95rem; 
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    flex-grow: 1; /* Allow card text to grow and push buttons down */
 }
 
+.card img.card-img-top {
+    border-radius: 8px 8px 0 0; 
+    margin-bottom: 1rem; /* Space between image and card body */
+    width: 100%; /* Ensure image is responsive within card */
+    aspect-ratio: 3/2; /* Maintain aspect ratio for placeholder consistency */
+    object-fit: cover; /* Ensure image covers the area */
+}
+.card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ensure card body takes available space */
+}
+
+
+.card .btn { /* General button styling within cards */
+    margin-top: auto; /* Push buttons to the bottom */
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+.card .btn-primary {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    color: #fff;
+}
+
+.card .btn-primary:hover {
+    background-color: var(--button-hover); 
+    border-color: var(--button-hover);
+    color: #fff;
+}
+
+.card .btn-secondary {
+    background-color: var(--secondary-accent);
+    border-color: var(--secondary-accent);
+    color: #fff;
+}
+
+.card .btn-secondary:hover {
+    background-color: var(--button-hover); /* Consider a different hover for secondary or adjust */
+    border-color: var(--button-hover);
+    color: #fff;
+}
+
+
+/* Contact Section (#contact) */
+#contact {
+    background-color: var(--background-color); /* Ensure it matches body or desired section bg */
+}
 form {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 700px; /* Increased max-width */
     margin: 0 auto;
+    background-color: var(--background-color); /* Form background */
+    padding: 2rem; /* Add padding to form */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--card-box-shadow);
+}
+
+body.dark-mode form {
+    border: 1px solid var(--card-border-color);
 }
 
 form label {
-    margin: 0.25rem 0; /* Reduced margin */
+    margin-bottom: 0.5rem; /* Space below label */
+    font-weight: 500;
+    font-family: var(--secondary-font-body);
 }
 
 form input,
 form textarea {
-    padding: 0.5rem;
-    margin-bottom: 0.75rem; /* Reduced margin */
-    border: 1px solid #ddd;
+    padding: 0.75rem; /* Increased padding */
+    margin-bottom: 1rem; /* Increased margin */
+    border: 1px solid var(--card-border-color);
     border-radius: 4px;
     width: 100%;
+    background-color: var(--background-color); /* Match form background */
+    color: var(--text-color); /* Ensure text is visible */
+    font-family: var(--secondary-font-body);
 }
 
+form input:focus,
+form textarea:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-accent), 0.25); /* Focus ring */
+    outline: none;
+}
+
+
 form button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem; /* Increased padding */
     background-color: var(--primary-accent);
-    color: var(--text-color);
+    color: #fff; /* Text color for button */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-family: var(--secondary-font-body);
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {
     background-color: var(--button-hover);
 }
 
+/* Footer */
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 2rem 1rem; /* Increased padding */
+    background-color: var(--background-color); /* Ensure footer bg matches */
+    border-top: 1px solid var(--card-border-color); /* Subtle top border */
+}
+footer p {
+    margin-bottom: 1rem; /* Space below copyright */
+    font-size: 0.9rem;
 }
 
-/* Typing effect styles */
-#typing {
-    font-size: 1.125rem;
-    font-weight: bold;
-    color: var(--text-color);
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.15em solid var(--text-color);
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+footer .fab { /* Targeting Font Awesome brand icons */
+    color: var(--footer-icon-color) !important; 
+    transition: color 0.3s ease;
+    font-size: 1.75rem; /* Adjust icon size */
+    margin: 0 0.75rem; /* Space between icons */
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--text-color); }
+footer .fab:hover {
+    color: var(--primary-accent) !important;
 }
 
 /* Responsive Styles */
+@media (max-width: 992px) { /* For tablets and large phones */
+    nav .navbar-brand {
+        font-size: 1.5rem;
+    }
+    nav .nav-link {
+        font-size: 0.9rem;
+    }
+    .resume-btn {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+    #home h1 {
+        font-size: 2.25rem;
+    }
+    #typing {
+        font-size: 1.1rem;
+    }
+    #about p {
+        font-size: 1rem;
+    }
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+
 @media (max-width: 768px) {
     body {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 0; /* Remove body padding if container handles it */
+        padding-right: 0;
     }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    .navbar-collapse {
+        background-color: var(--background-color); /* Ensure toggler menu has background */
+        padding: 1rem;
+        border-top: 1px solid var(--card-border-color);
     }
-
-    nav ul li {
-        margin-bottom: 1rem;
+    .navbar-nav .nav-item {
+        margin-right: 0; /* Remove right margin for stacked items */
+        margin-bottom: 0.5rem; /* Add bottom margin for spacing */
     }
-
-    #introduction {
-        flex-direction: column;
-        align-items: center;
+    nav .nav-link {
+         margin-right: 0; /* Reset margin for stacked links */
     }
-
-    #introduction .col-md-8,
-    #introduction .col-md-4 {
-        width: 100%;
+    button#mode-toggle {
+        margin-left: 0; /* Reset margin for toggle */
+        margin-top: 0.5rem; /* Add top margin */
+    }
+    .resume-btn {
+        display: block; /* Make resume button full width in toggler */
+        margin-left: 0;
+        margin-top: 1rem;
         text-align: center;
     }
 
-    #introduction img {
-        max-width: 80%;
-        height: auto;
+    #home {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    #home img.rounded-circle {
+        width: 120px !important; /* Override inline style */
+        height: 120px !important;
+    }
+    #home h1 {
+        font-size: 2rem;
+    }
+    #typing {
+        font-size: 1rem;
+        min-height: 1.5rem; /* Adjust height */
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #skills ul li {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #projects .col-md-6, #projects .col-lg-4 {
+        margin-bottom: 1rem; /* Ensure spacing between stacked cards */
+    }
+    .card {
+        padding: 1rem;
+    }
+    .card-title {
+        font-size: 1.3rem;
+    }
+    .card-text {
+        font-size: 0.9rem;
     }
 
     form {
-        width: 90%;
+        padding: 1.5rem;
+        width: 100%; /* Make form take full width */
+    }
+    form button {
+        padding: 0.75rem 1rem;
+    }
+
+    footer .fab {
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 576px) { /* For small phones */
+    #home img.rounded-circle {
+        width: 100px !important; 
+        height: 100px !important;
+    }
+    #home h1 {
+        font-size: 1.75rem;
+    }
+    #typing {
+        font-size: 0.9rem;
+    }
+    section h2 {
+        font-size: 1.6rem;
+    }
+    #about p {
+        text-align: left; /* Justify might be too much for small screens */
+    }
+     #skills ul li {
+        display: block; /* Stack skills on smallest screens */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 250px; /* Limit width of stacked skill items */
     }
 }
