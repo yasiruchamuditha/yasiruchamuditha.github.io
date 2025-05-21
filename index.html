@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
+<body style="padding-top: 70px;">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <a class="navbar-brand" href="#">Yasiru C.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
@@ -23,7 +24,7 @@
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
                 <button id="mode-toggle" class="btn btn-sm"><i class="fas fa-moon"></i></button>
-                <a href="cv/Yasiru_Chamuditha_Wijesinghe_CV.pdf" class="btn btn-outline-light btn-sm resume-btn" target="_blank">Download CV</a>
+                <a href="cv/Yasiru_Chamuditha_Wijesinghe_CV.pdf" class="btn btn-outline-secondary btn-sm resume-btn" target="_blank">Download CV</a>
             </div>
         </nav>
     </header>
@@ -65,8 +66,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Sample Project 1</h5>
                         <p class="card-text">A brief description of Sample Project 1. Highlighting key features and technologies used.</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                        <a href="#" class="btn btn-secondary">Source Code</a>
+                        <a href="#" class="btn btn-primary me-2">View Project</a>
+                        <a href="#" class="btn btn-outline-secondary">Source Code</a>
                     </div>
                 </div>
             </div>
@@ -76,8 +77,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Sample Project 2</h5>
                         <p class="card-text">A brief description of Sample Project 2. Highlighting key features and technologies used.</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                        <a href="#" class="btn btn-secondary">Source Code</a>
+                        <a href="#" class="btn btn-primary me-2">View Project</a>
+                        <a href="#" class="btn btn-outline-secondary">Source Code</a>
                     </div>
                 </div>
             </div>
@@ -87,8 +88,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Sample Project 3</h5>
                         <p class="card-text">A brief description of Sample Project 3. Highlighting key features and technologies used.</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                        <a href="#" class="btn btn-secondary">Source Code</a>
+                        <a href="#" class="btn btn-primary me-2">View Project</a>
+                        <a href="#" class="btn btn-outline-secondary">Source Code</a>
                     </div>
                 </div>
             </div>
@@ -98,16 +99,16 @@
     <section id="contact" class="container py-5">
         <h2>Contact Me</h2>
         <form>
-            <div class="form-group">
-                <label for="name">Name</label>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Your Name">
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Your Email">
             </div>
-            <div class="form-group">
-                <label for="message">Message</label>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" rows="5" placeholder="Your Message"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
@@ -123,6 +124,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

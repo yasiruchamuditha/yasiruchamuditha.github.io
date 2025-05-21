@@ -2,8 +2,11 @@
 :root {
     --background-color: #F9F9F9;
     --text-color: #222222;
+    --text-color-rgb: 34,34,34; /* RGB for #222222 */
     --primary-accent: #43A047;
+    --primary-accent-rgb: 67,160,71; /* RGB for #43A047 */
     --secondary-accent: #1976D2;
+    --secondary-accent-rgb: 25,118,210; /* RGB for #1976D2 */
     --button-hover: #1565C0;
     --card-border-color: #ddd;
     --card-box-shadow: rgba(0, 0, 0, 0.1);
@@ -18,8 +21,11 @@
 body.dark-mode {
     --background-color: #1E1E2F;
     --text-color: #F5F5F5;
+    --text-color-rgb: 245,245,245; /* RGB for #F5F5F5 */
     --primary-accent: #4CAF50;
+    --primary-accent-rgb: 76,175,80; /* RGB for #4CAF50 */
     --secondary-accent: #2196F3;
+    --secondary-accent-rgb: 33,150,243; /* RGB for #2196F3 */
     --button-hover: #388E3C;
     --card-border-color: rgba(245, 245, 245, 0.3); /* Lighter border for dark mode */
     --card-box-shadow: rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
@@ -30,57 +36,58 @@ body.dark-mode {
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: var(--secondary-font-body);
+    font-family: var(--secondary-font-body); /* Default body font */
     line-height: 1.6;
     margin: 0;
-    padding: 0; 
+    padding-top: 70px; /* For fixed-top navbar. Adjust if navbar height changes. */
 }
 
-header, footer {
+header { /* This can be simplified or removed if navbar is always fixed-top */
+   /* position: sticky; Now handled by .fixed-top on nav */
+   /* top: 0; */
+   /* z-index: 1000; */
+   /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); Replaced by .navbar shadow */
+}
+
+/* Navbar Styling (Bootstrap 5 Aware) */
+.navbar { /* Targets .navbar directly */
+    background-color: var(--background-color) !important; /* Override Bootstrap's default if any */
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075); /* Softer Bootstrap-like shadow */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: var(--text-color) !important;
+    font-family: var(--primary-font-heading); /* Navbar text uses heading font */
+}
+
+.navbar .nav-link.active, /* For active state, if implemented via JS */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: var(--primary-accent) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(var(--text-color-rgb), 0.5); /* Use RGB variable for toggler border */
+}
+
+.navbar-toggler-icon {
+    /* Bootstrap 5's default SVG icon will inherit color via filter.
+       If you were using a FontAwesome icon here, you'd style its color. */
+}
+
+/* Remove margin-right from .navbar-nav .nav-item as BS5 handles spacing for .ms-auto */
+.navbar-nav .nav-item {
+    /* margin-right: 0.5rem; */ /* No longer needed if using Bootstrap spacing utilities */
+}
+
+footer { /* Keep existing footer styles, just ensure they are not conflicting */
     background-color: transparent; 
     color: var(--text-color);
     padding: 0 1rem; 
     text-align: center;
     width: 100%;
     position: relative;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for header */
-}
-
-nav.navbar { /* More specific selector for nav */
-    background-color: var(--background-color); 
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-nav .navbar-brand {
-    font-family: var(--primary-font-heading);
-    font-size: 1.75rem; /* Slightly reduced for better balance */
-    transition: color 0.3s ease; 
-}
-
-nav .navbar-brand:hover {
-    color: var(--secondary-accent); 
-}
-
-nav .nav-link {
-    font-size: 1rem;
-    color: var(--text-color) !important; /* Ensure override bootstrap if necessary */
-    margin-right: 1rem; 
-    transition: color 0.3s ease; 
-}
-
-nav .nav-link:hover {
-    color: var(--secondary-accent) !important; 
-}
-
-.navbar-nav .nav-item {
-    margin-right: 0.5rem; /* Reduced space between links for compactness */
 }
 
 button#mode-toggle {
@@ -102,30 +109,53 @@ button#mode-toggle:hover {
     color: var(--secondary-accent); 
 }
 
-.resume-btn { /* Simplified selector */
+.resume-btn {
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
+    /* Keep custom shape/padding if desired, or lean on BS more */
     border-radius: 20px; 
-    padding: 0.375rem 1rem; /* Bootstrap's default btn-sm padding is often good */
-    background-color: transparent; 
-    color: var(--text-color); 
-    border: 1px solid var(--text-color); 
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
-    margin-left: 0.5rem; /* Space before resume button */
+    padding: 0.375rem 1rem; 
+    margin-left: 0.5rem; /* Space before resume button - can be adjusted or use BS margin classes in HTML */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.resume-btn:hover {
+.resume-btn:hover,
+.resume-btn:focus {
     background-color: var(--primary-accent);
-    color: #fff; 
+    color: #fff; /* Or a variable like --button-text-on-accent */
     border-color: var(--primary-accent);
 }
 
-.container {
-    max-width: 1140px; /* Standard bootstrap lg container width */
-    padding-left: 15px;
-    padding-right: 15px;
+/* Ensure standard Bootstrap buttons use theme colors */
+.btn-primary {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    color: #fff; /* Or --button-text-on-accent */
+}
+.btn-primary:hover {
+     background-color: var(--button-hover); /* Using existing hover variable */
+     border-color: var(--button-hover);
 }
 
-section {
-    padding: 3rem 0; /* Increased vertical padding for sections */
+.btn-outline-secondary { /* This is new for project source code buttons */
+    border-color: var(--secondary-accent);
+    color: var(--secondary-accent);
+}
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-accent);
+    color: #fff; /* Or --button-text-on-accent */
+}
+
+
+/* .container class is now defined by Bootstrap. Remove custom if it's just for max-width. */
+/* .container {
+    max-width: 1140px; 
+    padding-left: 15px;
+    padding-right: 15px;
+} */
+
+section { /* Keep custom padding for sections */
+    padding: 3rem 0; 
     margin-bottom: 0; /* Remove bottom margin if padding is sufficient */
     background-color: var(--background-color);
     color: var(--text-color);
@@ -139,9 +169,10 @@ section h2 {
     font-weight: 600; /* Bolder headings */
 }
 
+
 /* Introduction Section (#home) */
 #home {
-    padding-top: 4rem; /* More padding at the top */
+    padding-top: 3rem; /* Adjusted because global body padding-top exists */
     padding-bottom: 4rem;
 }
 #home img.rounded-circle {
@@ -212,180 +243,165 @@ section h2 {
 
 /* Projects Section (#projects) */
 .card {
-    background-color: var(--background-color);
-    border: 1px solid var(--card-border-color); 
+    background-color: var(--background-color); /* Handled by BS .card class, but can be reinforced */
+    border: 1px solid var(--card-border-color); /* BS .card has border, this themes it */
+    /* Keep existing: box-shadow, border-radius, transition, height, display:flex, flex-direction:column */
     border-radius: 12px; 
-    padding: 1.25rem; 
-    margin-bottom: 2rem; 
+    padding: 1.25rem; /* Default BS card body padding is 1rem. This is slightly more. */
+    margin-bottom: 2rem; /* BS mb-4 is 1.5rem. This is slightly more. */
     box-shadow: 0 6px 12px var(--card-box-shadow); 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     height: 100%; 
-    display: flex; /* Added for flex properties */
-    flex-direction: column; /* Added for flex properties */
+    display: flex; 
+    flex-direction: column; 
 }
 
 .card:hover {
     transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Enhance shadow on hover for light, adjust for dark if needed */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
 }
 
 body.dark-mode .card:hover {
-    box-shadow: 0 10px 20px rgba(255,255,255,0.1); /* Lighter shadow for dark mode hover */
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1); 
 }
 
-
-.card-title {
+.card-title { 
     font-family: var(--primary-font-heading);
     font-size: 1.5rem; 
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem; /* BS default is mb-2 (0.5rem) */
     color: var(--text-color);
 }
 
-.card-text {
+.card-text { 
     font-family: var(--secondary-font-body);
     font-size: 0.95rem; 
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* BS default */
     color: var(--text-color);
-    flex-grow: 1; /* Allow card text to grow and push buttons down */
+    flex-grow: 1;
 }
 
-.card img.card-img-top {
+.card img.card-img-top { /* Keep custom image styling */
     border-radius: 8px 8px 0 0; 
-    margin-bottom: 1rem; /* Space between image and card body */
-    width: 100%; /* Ensure image is responsive within card */
-    aspect-ratio: 3/2; /* Maintain aspect ratio for placeholder consistency */
-    object-fit: cover; /* Ensure image covers the area */
+    margin-bottom: 1rem; 
+    width: 100%; 
+    aspect-ratio: 3/2; 
+    object-fit: cover; 
 }
-.card .card-body {
+.card .card-body { /* Keep flex properties for card body content alignment */
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ensure card body takes available space */
+    flex-grow: 1; 
 }
 
-
-.card .btn { /* General button styling within cards */
-    margin-top: auto; /* Push buttons to the bottom */
+/* Remove .card .btn specific styling if general .btn-primary, .btn-outline-secondary is enough */
+/* .card .btn { 
+    margin-top: auto; 
     margin-right: 0.5rem;
     padding: 0.5rem 1rem;
     font-weight: 500;
-}
-.card .btn-primary {
-    background-color: var(--primary-accent);
-    border-color: var(--primary-accent);
-    color: #fff;
-}
-
-.card .btn-primary:hover {
-    background-color: var(--button-hover); 
-    border-color: var(--button-hover);
-    color: #fff;
-}
-
-.card .btn-secondary {
-    background-color: var(--secondary-accent);
-    border-color: var(--secondary-accent);
-    color: #fff;
-}
-
-.card .btn-secondary:hover {
-    background-color: var(--button-hover); /* Consider a different hover for secondary or adjust */
-    border-color: var(--button-hover);
-    color: #fff;
-}
+} */
+/* Specific card button color overrides are handled by the general .btn-primary etc. styles now */
 
 
-/* Contact Section (#contact) */
-#contact {
-    background-color: var(--background-color); /* Ensure it matches body or desired section bg */
-}
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px; /* Increased max-width */
-    margin: 0 auto;
-    background-color: var(--background-color); /* Form background */
-    padding: 2rem; /* Add padding to form */
+/* Contact Section (#contact) & Form Styling (Bootstrap 5 Aware) */
+#contact form { /* The container for the form itself */
+    background-color: var(--background-color); 
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--card-box-shadow);
+    /* display: flex, flex-direction: column, max-width, margin: 0 auto are still relevant */
+    display: flex;
+    flex-direction: column;
+    max-width: 700px; 
+    margin: 0 auto;
 }
 
-body.dark-mode form {
-    border: 1px solid var(--card-border-color);
+body.dark-mode #contact form { /* This is more specific than the general body.dark-mode form */
+     border: 1px solid var(--card-border-color);
 }
 
-form label {
-    margin-bottom: 0.5rem; /* Space below label */
+/* .form-label class is provided by Bootstrap 5 */
+.form-label { 
+    color: var(--text-color);
+    margin-bottom: 0.5rem; 
     font-weight: 500;
     font-family: var(--secondary-font-body);
 }
 
-form input,
-form textarea {
-    padding: 0.75rem; /* Increased padding */
-    margin-bottom: 1rem; /* Increased margin */
+/* .form-control class is provided by Bootstrap 5 */
+.form-control {
+    background-color: var(--background-color);
+    color: var(--text-color);
     border: 1px solid var(--card-border-color);
-    border-radius: 4px;
-    width: 100%;
-    background-color: var(--background-color); /* Match form background */
-    color: var(--text-color); /* Ensure text is visible */
-    font-family: var(--secondary-font-body);
+    /* padding, margin-bottom, border-radius, width are handled by BS .form-control and .mb-3 */
 }
 
-form input:focus,
-form textarea:focus {
+.form-control:focus {
+    background-color: var(--background-color); /* Ensure focus keeps bg color */
+    color: var(--text-color); /* Ensure focus keeps text color */
     border-color: var(--primary-accent);
-    box-shadow: 0 0 0 0.2rem rgba(var(--primary-accent), 0.25); /* Focus ring */
-    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-accent-rgb), 0.25); /* BS5 focus shadow */
+    outline: none; /* Outline is handled by box-shadow */
 }
 
-
-form button {
-    padding: 0.75rem 1.5rem; /* Increased padding */
+/* Remove custom form button styling if .btn-primary is sufficient */
+/* form button {
+    padding: 0.75rem 1.5rem; 
     background-color: var(--primary-accent);
-    color: #fff; /* Text color for button */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: var(--secondary-font-body);
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+    color: #fff; 
+    border: none; // Handled by .btn
+    border-radius: 4px; // Handled by .btn
+    cursor: pointer; // Handled by .btn
+    font-family: var(--secondary-font-body); // Handled by .btn
+    font-weight: bold; // Can be customized if needed, BS .btn has its own weight
+    transition: background-color 0.3s ease; // Handled by .btn
+} */
 
-form button:hover {
+/* form button:hover { // Handled by .btn-primary:hover
     background-color: var(--button-hover);
-}
+} */
 
 /* Footer */
-footer {
+footer { /* Keep existing footer styles */
     text-align: center;
-    padding: 2rem 1rem; /* Increased padding */
-    background-color: var(--background-color); /* Ensure footer bg matches */
-    border-top: 1px solid var(--card-border-color); /* Subtle top border */
+    padding: 2rem 1rem; 
+    background-color: var(--background-color); 
+    border-top: 1px solid var(--card-border-color); 
 }
-footer p {
-    margin-bottom: 1rem; /* Space below copyright */
+footer p { /* Keep existing footer styles */
+    margin-bottom: 1rem; 
     font-size: 0.9rem;
 }
 
-footer .fab { /* Targeting Font Awesome brand icons */
+footer .fab { /* Keep existing footer styles */
     color: var(--footer-icon-color) !important; 
     transition: color 0.3s ease;
-    font-size: 1.75rem; /* Adjust icon size */
-    margin: 0 0.75rem; /* Space between icons */
+    font-size: 1.75rem; 
+    margin: 0 0.75rem; 
 }
 
-footer .fab:hover {
+footer .fab:hover { /* Keep existing footer styles */
     color: var(--primary-accent) !important;
 }
 
-/* Responsive Styles */
+/* Font Application */
+/* body font-family is already set */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+/* .navbar-brand and .card-title already have primary-font-heading from their specific rules */
+/* .navbar .nav-link also has primary-font-heading from its specific rule */
+#home h1 /* This is already covered by h1 styling */ {
+    font-family: var(--primary-font-heading);
+}
+
+
+/* Responsive Styles - Review and adjust based on Bootstrap 5 behavior */
+/* Bootstrap 5 is mobile-first, so some overrides might need adjustment or become simpler. */
+
 @media (max-width: 992px) { /* For tablets and large phones */
-    nav .navbar-brand {
-        font-size: 1.5rem;
-    }
-    nav .nav-link {
-        font-size: 0.9rem;
-    }
+    /* nav .navbar-brand font-size is handled by BS default or specific .navbar .navbar-brand rule */
+    /* nav .nav-link font-size is handled by BS default or specific .navbar .nav-link rule */
+    /* .resume-btn padding and font-size are custom, keep if needed */
     .resume-btn {
         padding: 0.3rem 0.75rem;
         font-size: 0.9rem;
@@ -393,7 +409,7 @@ footer .fab:hover {
     section h2 {
         font-size: 2rem;
     }
-    #home h1 {
+    #home h1 { /* This is more specific than general h1 */
         font-size: 2.25rem;
     }
     #typing {
@@ -402,46 +418,45 @@ footer .fab:hover {
     #about p {
         font-size: 1rem;
     }
-    .card {
-        margin-bottom: 1.5rem;
-    }
+    /* .card margin-bottom is handled by BS .mb-4 on column or custom .card margin */
 }
 
 
 @media (max-width: 768px) {
-    body {
-        padding-left: 0; /* Remove body padding if container handles it */
-        padding-right: 0;
-    }
+    /* body padding-left/right 0 is fine if containers handle their own padding */
+    
+    /* .navbar-collapse styling for background etc. is important for theme */
     .navbar-collapse {
-        background-color: var(--background-color); /* Ensure toggler menu has background */
+        background-color: var(--background-color); 
         padding: 1rem;
         border-top: 1px solid var(--card-border-color);
     }
+    /* .navbar-nav .nav-item margin adjustments for vertical stacking are fine */
     .navbar-nav .nav-item {
-        margin-right: 0; /* Remove right margin for stacked items */
-        margin-bottom: 0.5rem; /* Add bottom margin for spacing */
+        /* margin-right: 0; Already removed */
+        margin-bottom: 0.5rem; 
     }
-    nav .nav-link {
-         margin-right: 0; /* Reset margin for stacked links */
-    }
+    /* nav .nav-link margin-right:0 is fine */
+    
+    /* button#mode-toggle margin adjustments for vertical stacking are fine */
     button#mode-toggle {
-        margin-left: 0; /* Reset margin for toggle */
-        margin-top: 0.5rem; /* Add top margin */
+        margin-left: 0; 
+        margin-top: 0.5rem; 
     }
+    /* .resume-btn display:block and margin adjustments for vertical stacking are fine */
     .resume-btn {
-        display: block; /* Make resume button full width in toggler */
+        display: block; 
         margin-left: 0;
         margin-top: 1rem;
         text-align: center;
     }
 
-    #home {
-        padding-top: 2rem;
+    #home { /* Adjust padding for smaller screens */
+        padding-top: 2rem; 
         padding-bottom: 2rem;
     }
-    #home img.rounded-circle {
-        width: 120px !important; /* Override inline style */
+    #home img.rounded-circle { /* Keep custom image sizing for responsive */
+        width: 120px !important; 
         height: 120px !important;
     }
     #home h1 {
@@ -449,10 +464,10 @@ footer .fab:hover {
     }
     #typing {
         font-size: 1rem;
-        min-height: 1.5rem; /* Adjust height */
+        min-height: 1.5rem; 
     }
 
-    section {
+    section { /* Adjust section padding for smaller screens */
         padding: 2rem 0;
     }
     section h2 {
@@ -460,15 +475,14 @@ footer .fab:hover {
         margin-bottom: 1.5rem;
     }
 
-    #skills ul li {
+    #skills ul li { /* Adjust skill tag padding/font for smaller screens */
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
     
-    #projects .col-md-6, #projects .col-lg-4 {
-        margin-bottom: 1rem; /* Ensure spacing between stacked cards */
-    }
-    .card {
+    /* #projects .col-md-6, #projects .col-lg-4 margin-bottom is handled by BS .mb-4 on columns */
+    
+    .card { /* Adjust card padding for smaller screens */
         padding: 1rem;
     }
     .card-title {
@@ -478,22 +492,20 @@ footer .fab:hover {
         font-size: 0.9rem;
     }
 
-    form {
+    #contact form { /* Adjust form padding for smaller screens */
         padding: 1.5rem;
-        width: 100%; /* Make form take full width */
+        /* width: 100%; is default for block elements like form */
     }
-    form button {
-        padding: 0.75rem 1rem;
-    }
+    /* form button padding already handled by .btn and .btn-primary */
 
-    footer .fab {
+    footer .fab { /* Adjust footer icon size/margin for smaller screens */
         font-size: 1.5rem;
         margin: 0 0.5rem;
     }
 }
 
 @media (max-width: 576px) { /* For small phones */
-    #home img.rounded-circle {
+    #home img.rounded-circle { /* Further reduce image size */
         width: 100px !important; 
         height: 100px !important;
     }
@@ -506,13 +518,13 @@ footer .fab:hover {
     section h2 {
         font-size: 1.6rem;
     }
-    #about p {
-        text-align: left; /* Justify might be too much for small screens */
+    #about p { /* Justify might be too much, revert to left */
+        text-align: left; 
     }
-     #skills ul li {
-        display: block; /* Stack skills on smallest screens */
+     #skills ul li { /* Stack skill tags */
+        display: block; 
         margin-left: auto;
         margin-right: auto;
-        max-width: 250px; /* Limit width of stacked skill items */
+        max-width: 250px; 
     }
 }
