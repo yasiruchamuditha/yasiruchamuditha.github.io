@@ -82,9 +82,9 @@ header { /* This can be simplified or removed if navbar is always fixed-top */
 }
 
 footer { /* Keep existing footer styles, just ensure they are not conflicting */
-    background-color: transparent; 
+    background-color: transparent;
     color: var(--text-color);
-    padding: 0 1rem; 
+    padding: 0 1rem;
     text-align: center;
     width: 100%;
     position: relative;
@@ -92,12 +92,12 @@ footer { /* Keep existing footer styles, just ensure they are not conflicting */
 
 button#mode-toggle {
     padding: 0.25rem 0.5rem; /* Added some padding */
-    background-color: transparent; 
+    background-color: transparent;
     color: var(--text-color);
-    border: none; 
+    border: none;
     cursor: pointer;
-    outline: none; 
-    transition: color 0.3s ease; 
+    outline: none;
+    transition: color 0.3s ease;
     margin-left: 1rem; /* Space before toggle */
 }
 
@@ -106,15 +106,15 @@ button#mode-toggle i {
 }
 
 button#mode-toggle:hover {
-    color: var(--secondary-accent); 
+    color: var(--secondary-accent);
 }
 
 .resume-btn {
     border-color: var(--primary-accent);
     color: var(--primary-accent);
     /* Keep custom shape/padding if desired, or lean on BS more */
-    border-radius: 20px; 
-    padding: 0.375rem 1rem; 
+    border-radius: 20px;
+    padding: 0.375rem 1rem;
     margin-left: 0.5rem; /* Space before resume button - can be adjusted or use BS margin classes in HTML */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -149,13 +149,13 @@ button#mode-toggle:hover {
 
 /* .container class is now defined by Bootstrap. Remove custom if it's just for max-width. */
 /* .container {
-    max-width: 1140px; 
+    max-width: 1140px;
     padding-left: 15px;
     padding-right: 15px;
 } */
 
 section { /* Keep custom padding for sections */
-    padding: 3rem 0; 
+    padding: 3rem 0;
     margin-bottom: 0; /* Remove bottom margin if padding is sufficient */
     background-color: var(--background-color);
     color: var(--text-color);
@@ -241,61 +241,67 @@ section h2 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow on hover */
 }
 
+/* Education Section Specific Styles */
+#education .card-subtitle {
+    color: var(--secondary-accent) !important; /* Use accent color for degree */
+    font-weight: 500; /* Slightly bolder than default muted text */
+}
+
 /* Projects Section (#projects) */
 .card {
     background-color: var(--background-color); /* Handled by BS .card class, but can be reinforced */
     border: 1px solid var(--card-border-color); /* BS .card has border, this themes it */
     /* Keep existing: box-shadow, border-radius, transition, height, display:flex, flex-direction:column */
-    border-radius: 12px; 
+    border-radius: 12px;
     padding: 1.25rem; /* Default BS card body padding is 1rem. This is slightly more. */
     margin-bottom: 2rem; /* BS mb-4 is 1.5rem. This is slightly more. */
-    box-shadow: 0 6px 12px var(--card-box-shadow); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    height: 100%; 
-    display: flex; 
-    flex-direction: column; 
+    box-shadow: 0 6px 12px var(--card-box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 body.dark-mode .card:hover {
-    box-shadow: 0 10px 20px rgba(255,255,255,0.1); 
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
 }
 
-.card-title { 
+.card-title {
     font-family: var(--primary-font-heading);
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     margin-bottom: 0.75rem; /* BS default is mb-2 (0.5rem) */
     color: var(--text-color);
 }
 
-.card-text { 
+.card-text {
     font-family: var(--secondary-font-body);
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
     margin-bottom: 1rem; /* BS default */
     color: var(--text-color);
     flex-grow: 1;
 }
 
 .card img.card-img-top { /* Keep custom image styling */
-    border-radius: 8px 8px 0 0; 
-    margin-bottom: 1rem; 
-    width: 100%; 
-    aspect-ratio: 3/2; 
-    object-fit: cover; 
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
 }
 .card .card-body { /* Keep flex properties for card body content alignment */
     display: flex;
     flex-direction: column;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 /* Remove .card .btn specific styling if general .btn-primary, .btn-outline-secondary is enough */
-/* .card .btn { 
-    margin-top: auto; 
+/* .card .btn {
+    margin-top: auto;
     margin-right: 0.5rem;
     padding: 0.5rem 1rem;
     font-weight: 500;
@@ -305,14 +311,14 @@ body.dark-mode .card:hover {
 
 /* Contact Section (#contact) & Form Styling (Bootstrap 5 Aware) */
 #contact form { /* The container for the form itself */
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--card-box-shadow);
     /* display: flex, flex-direction: column, max-width, margin: 0 auto are still relevant */
     display: flex;
     flex-direction: column;
-    max-width: 700px; 
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -321,9 +327,9 @@ body.dark-mode #contact form { /* This is more specific than the general body.da
 }
 
 /* .form-label class is provided by Bootstrap 5 */
-.form-label { 
+.form-label {
     color: var(--text-color);
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
     font-weight: 500;
     font-family: var(--secondary-font-body);
 }
@@ -346,9 +352,9 @@ body.dark-mode #contact form { /* This is more specific than the general body.da
 
 /* Remove custom form button styling if .btn-primary is sufficient */
 /* form button {
-    padding: 0.75rem 1.5rem; 
+    padding: 0.75rem 1.5rem;
     background-color: var(--primary-accent);
-    color: #fff; 
+    color: #fff;
     border: none; // Handled by .btn
     border-radius: 4px; // Handled by .btn
     cursor: pointer; // Handled by .btn
@@ -364,20 +370,20 @@ body.dark-mode #contact form { /* This is more specific than the general body.da
 /* Footer */
 footer { /* Keep existing footer styles */
     text-align: center;
-    padding: 2rem 1rem; 
-    background-color: var(--background-color); 
-    border-top: 1px solid var(--card-border-color); 
+    padding: 2rem 1rem;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--card-border-color);
 }
 footer p { /* Keep existing footer styles */
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     font-size: 0.9rem;
 }
 
 footer .fab { /* Keep existing footer styles */
-    color: var(--footer-icon-color) !important; 
+    color: var(--footer-icon-color) !important;
     transition: color 0.3s ease;
-    font-size: 1.75rem; 
-    margin: 0 0.75rem; 
+    font-size: 1.75rem;
+    margin: 0 0.75rem;
 }
 
 footer .fab:hover { /* Keep existing footer styles */
@@ -424,39 +430,39 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 
 @media (max-width: 768px) {
     /* body padding-left/right 0 is fine if containers handle their own padding */
-    
+
     /* .navbar-collapse styling for background etc. is important for theme */
     .navbar-collapse {
-        background-color: var(--background-color); 
+        background-color: var(--background-color);
         padding: 1rem;
         border-top: 1px solid var(--card-border-color);
     }
     /* .navbar-nav .nav-item margin adjustments for vertical stacking are fine */
     .navbar-nav .nav-item {
         /* margin-right: 0; Already removed */
-        margin-bottom: 0.5rem; 
+        margin-bottom: 0.5rem;
     }
     /* nav .nav-link margin-right:0 is fine */
-    
+
     /* button#mode-toggle margin adjustments for vertical stacking are fine */
     button#mode-toggle {
-        margin-left: 0; 
-        margin-top: 0.5rem; 
+        margin-left: 0;
+        margin-top: 0.5rem;
     }
     /* .resume-btn display:block and margin adjustments for vertical stacking are fine */
     .resume-btn {
-        display: block; 
+        display: block;
         margin-left: 0;
         margin-top: 1rem;
         text-align: center;
     }
 
     #home { /* Adjust padding for smaller screens */
-        padding-top: 2rem; 
+        padding-top: 2rem;
         padding-bottom: 2rem;
     }
     #home img.rounded-circle { /* Keep custom image sizing for responsive */
-        width: 120px !important; 
+        width: 120px !important;
         height: 120px !important;
     }
     #home h1 {
@@ -464,7 +470,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
     }
     #typing {
         font-size: 1rem;
-        min-height: 1.5rem; 
+        min-height: 1.5rem;
     }
 
     section { /* Adjust section padding for smaller screens */
@@ -479,9 +485,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
-    
+
     /* #projects .col-md-6, #projects .col-lg-4 margin-bottom is handled by BS .mb-4 on columns */
-    
+
     .card { /* Adjust card padding for smaller screens */
         padding: 1rem;
     }
@@ -506,7 +512,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 
 @media (max-width: 576px) { /* For small phones */
     #home img.rounded-circle { /* Further reduce image size */
-        width: 100px !important; 
+        width: 100px !important;
         height: 100px !important;
     }
     #home h1 {
@@ -519,12 +525,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
         font-size: 1.6rem;
     }
     #about p { /* Justify might be too much, revert to left */
-        text-align: left; 
+        text-align: left;
     }
      #skills ul li { /* Stack skill tags */
-        display: block; 
+        display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width: 250px; 
+        max-width: 250px;
     }
 }
