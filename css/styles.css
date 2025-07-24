@@ -1,3 +1,6 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap');
+
 /* Light Mode Variables */
 :root {
     --background-color: #F9F9F9;
@@ -198,6 +201,17 @@ section h2 {
     overflow: hidden;
     border-right: 0.15em solid var(--primary-accent); /* Use accent for caret */
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframes for typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-accent); }
 }
 
 /* @keyframes typing is already defined, ensuring it's correct */
