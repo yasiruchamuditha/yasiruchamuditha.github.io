@@ -1,0 +1,18 @@
+# Yasiru Chamuditha - CV
+
+This is a placeholder for the CV file. Replace this with the actual PDF file.
+
+## Contact Information
+- Email: yasiruchamuditha@gmail.com  
+- LinkedIn: https://linkedin.com/in/yasiruchamuditha
+- GitHub: https://github.com/yasiruchamuditha
+
+## Skills
+- Full-Stack Development
+- Web Development  
+- Software Engineering
+- Frontend Technologies: HTML5, CSS3, JavaScript, React.js, Bootstrap
+- Backend Technologies: Node.js, Python, MongoDB, MySQL
+
+## Note
+This is a placeholder file. Please replace `cv/Yasiru_Chamuditha_Wijesinghe_CV.pdf` with the actual PDF resume.
