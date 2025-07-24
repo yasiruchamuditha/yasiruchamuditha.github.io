@@ -1,4 +1,4 @@
-# Yasiru Chamuditha - Portfolio Website
+<!-- # Yasiru Chamuditha - Portfolio Website
 
 Welcome to my personal portfolio website hosted on GitHub Pages. This site showcases my skills, projects, and experience as a Full-Stack Developer.
 
@@ -59,4 +59,4 @@ Feel free to reach out to me through the contact form on the website or connect 
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [MIT License](LICENSE). -->
