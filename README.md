@@ -1,62 +1,44 @@
-<!-- # Yasiru Chamuditha - Portfolio Website
+# Yasiru Chamuditha — Portfolio Website
 
-Welcome to my personal portfolio website hosted on GitHub Pages. This site showcases my skills, projects, and experience as a Full-Stack Developer.
+Welcome to my personal portfolio website hosted on GitHub Pages. This site showcases my skills, experience, and projects as an AI/ML Engineer, Full-Stack Developer, and Consultant.
 
 ## 🌐 Live Website
 
-Visit my portfolio at: [chamuditha.me](https://chamuditha.me)
+Visit my portfolio at: [yasiruchamuditha.github.io](https://yasiruchamuditha.github.io)
 
-## 🛠️ Technologies Used
+## 🛠️ Built With
 
-- **HTML5** - Structure and content
-- **CSS3** - Styling with custom properties (CSS variables)
-- **JavaScript** - Interactive features and animations
-- **Bootstrap 5** - Responsive design framework
-- **Font Awesome** - Icons
-- **Google Fonts** - Typography (Montserrat, Open Sans, Raleway)
+- **HTML5** - Structure and semantics
+- **CSS3 (Vanilla)** - Responsive grid/flex layouts, CSS variables, keyframe animations, glassmorphism elements, and theme overrides
+- **JavaScript (Vanilla)** - Interactive capabilities: theme switcher toggle, responsive mobile slide-out drawer navigation menu, CSS marquee speed matching, and scroll reveal triggers using `IntersectionObserver`.
 
-## ✨ Features
+## ✨ Key Features
 
-- **Responsive Design** - Works on all devices
-- **Dark/Light Mode Toggle** - User preference with localStorage persistence
-- **Typing Animation** - Dynamic role display
-- **Contact Form** - Functional contact form with validation
-- **Smooth Animations** - CSS transitions and hover effects
-- **SEO Optimized** - Meta tags and semantic HTML
+- **Premium Responsive Layout** - Responsive cross-device design matching mobile, tablet, and desktop viewports.
+- **Dark/Light Mode Toggle** persists selections locally.
+- **Interactive Card Flip Visual** displays technical skill tags on flip.
+- **Continuous Marquee Banners** showing active roles and services.
+- **Custom Scroll Tracker Progress** at the top of page.
+- **Static Mailto Contact Handler** facilitating direct email messaging client-side.
 
 ## 📁 Project Structure
 
 ```
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css      # Main stylesheet
-├── js/
-│   └── script.js       # JavaScript functionality
+├── index.html          # Main application page (styles, markup, and scripts)
 ├── images/
-│   └── yasiru.jpg      # Profile image
-├── cv/
-│   └── Yasiru_Chamuditha_Wijesinghe_CV.pdf
-├── CNAME               # Custom domain configuration
+│   └── profile.png     # Avatar/profile photo
+├── CNAME               # Custom domain configuration (if active)
 └── README.md           # Project documentation
 ```
 
-## 🚀 Getting Started
+## 🚀 Getting Started Locally
 
-1. Clone the repository
-2. Open `index.html` in your browser
-3. For development, use a local server:
-
+1. Clone this repository to your computer:
+   ```bash
+   git clone https://github.com/yasiruchamuditha/yasiruchamuditha.github.io.git
+   ```
+2. Navigate into the directory and launch a lightweight web server:
    ```bash
    python3 -m http.server 8000
    ```
-
-## 📧 Contact
-
-Feel free to reach out to me through the contact form on the website or connect with me on:
-
-- [LinkedIn](https://linkedin.com/in/yasiruchamuditha)
-- [GitHub](https://github.com/yasiruchamuditha)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE). -->
+3. Open `http://localhost:8000` in your web browser.
