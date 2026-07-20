@@ -928,18 +928,37 @@
       </div>
 
       <div class="card">
-        <form id="contactForm">
+        <form id="contactForm"
+              action="https://api.web3forms.com/submit"
+              method="POST">
+      <input type="hidden"
+       name="access_key"
+       value="31153501-571b-476b-987b-6031843e873d">
+
+      <input type="hidden"
+       name="from_name"
+       value="Chamuditha Portfolio">
+
+      <input type="hidden"
+       name="subject"
+       value="New Portfolio Contact">
+
+      <input type="checkbox"
+       name="botcheck"
+       style="display:none;">
+
           <div class="field-row">
-            <div><span class="field-label">Your Name</span><input type="text" id="cf-name" placeholder="John Doe" required></div>
-            <div><span class="field-label">Your Email</span><input type="email" id="cf-email" placeholder="john@company.com" required></div>
+            <div><span class="field-label">Your Name</span><input type="text" id="cf-name" name="name" placeholder="John Doe" required></div>
+
+            <div><span class="field-label">Your Email</span><input type="email" id="cf-email" name="email" placeholder="john@company.com" required></div>
           </div>
           <div class="field-block">
             <span class="field-label">Subject</span>
-            <input type="text" id="cf-subject" placeholder="AI/ML Project / Consulting / ICT Tutoring ..." required>
+            <input type="text" id="cf-subject" name="user_subject" placeholder="AI/ML Project / Consulting / ICT Tutoring ..." required>
           </div>
           <div class="field-block">
             <span class="field-label">Message</span>
-            <textarea id="cf-message" placeholder="Tell me about your project..." required></textarea>
+            <textarea id="cf-message" name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">➤ Send Message</button>
           <div class="form-status" id="cf-status"></div>
