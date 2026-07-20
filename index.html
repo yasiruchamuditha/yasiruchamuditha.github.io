@@ -1031,28 +1031,35 @@
   updateProgress();
 
   // Contact form -> mailto (no backend needed for static hosting)
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('cf-status');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value.trim();
-    const email = document.getElementById('cf-email').value.trim();
-    const subject = document.getElementById('cf-subject').value.trim();
-    const message = document.getElementById('cf-message').value.trim();
+const form = document.getElementById("contactForm");
+const status = document.getElementById("cf-status");
 
-    if(!name || !email || !subject || !message){
-      status.textContent = 'Please fill in all fields.';
-      status.className = 'form-status err';
-      return;
+form.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    status.innerHTML = "Sending...";
+    status.className = "form-status";
+
+    const formData = new FormData(form);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        status.innerHTML = "✅ Message sent successfully!";
+        status.className = "form-status ok";
+        form.reset();
+    } else {
+        status.innerHTML = "❌ Something went wrong.";
+        status.className = "form-status err";
     }
 
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const mailtoLink = `mailto:yasiruchamudithawijesinghe@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-    status.textContent = 'Opening your email app... if nothing happens, email me directly at yasiruchamudithawijesinghe@gmail.com';
-    status.className = 'form-status ok';
-  });
+});
 
   // Responsive mobile menu interactions
   const menuToggle = document.getElementById('menuToggle');
